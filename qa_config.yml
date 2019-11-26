@@ -1,0 +1,15 @@
+config:
+  target: http://127.0.0.1:7000
+  processor: "../processors/console_proc.js"
+  plugins:
+    faker: {}
+  variables:
+    password: "123456789"
+    prefix: "QA"
+  payload:
+  - path: "../data/QA_accounts.csv"
+    fields:
+      - "email"
+  phases:
+    - duration: 10
+      arrivalCount: 1

@@ -1,0 +1,16 @@
+{
+  "name": "artilleryio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "^1.6.0-29",
+    "artillery-plugin-faker": "^2.0.1",
+    "crypto": "^1.0.1"
+  }
+}

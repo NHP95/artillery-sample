@@ -1,0 +1,26 @@
+config:
+  target: http://localhost:7000 #API endpoint
+  variables:
+    botName: $faker.company.companyName
+    
+
+scenarios:
+  - name: "Create a bot"
+    flow:
+      - post: 
+            url: /auth/sign_in
+            json:
+              email: "{{ email }}"
+              password: "{{ password }}"
+            beforeRequest: hashPassword
+            capture:
+              json: "$.jwtToken"
+              transform: "`JWT ${this.token}`"
+              as: "token"
+      - think: 5
+      - post:
+            url: /bot/create
+            json:
+              botName: "{{ prefix }}_{{ botName }}"
+              botWebsite: "https://artillery.io/"
+              zoneName: "Asia/Bangkok"
